@@ -23,7 +23,16 @@ function Footer() {
 
                             <img src='cnlogo2.png' alt='codingninjalogo' />
                         </a>
-                        <p class="mt-2 text-sm text-white">Air plant banjo lyft occupy retro adaptogen indego</p>
+                        <div className='px-10 py-10'>
+                            <h1 className='font-bold text-base'>Download our app:</h1>
+                            <button class="bg-black inline-flex mt-2 py-3 px-5 rounded-lg items-center focus:outline-none">
+                                <img className='w-5' src='google-play.svg' alt='google play' />
+                                <span class="ml-4 flex items-start flex-col leading-none">
+                                    <span class="text-xs  mb-1">GET IT ON</span>
+                                    <span class="title-font font-medium">Google Play</span>
+                                </span>
+                            </button>
+                        </div>
                     </div>
                     <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 text-left">
 
