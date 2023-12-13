@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 function Home() {
     return (
@@ -39,9 +40,9 @@ function Home() {
                             {/* Card  */}
                             <div className='relative z-0 xl:w-[60%] md:w-[100%] w-full xl:mx-20 xl:px-10 px-'>
 
-                                <img className='absolute xl:block  z-1 xl:left-[85%] md:left-[90%] left-[78%] top-[5%]' src='diagonal.png' alt='img' />
-                                <img className='absolute xl:block  z-1 xl:left-[92%] md:left-[100%] left-[85%] xl:top-[17%] md:top-[17%] top-[0%]' src='diagonal.png' alt='img' />
-                                <img className='absolute xl:block  z-1 xl:left-[0%] md:right-[90%] xl:top-[85%] md:top-[80%]' src='diagonal.png' alt='img' />
+                                <img className='absolute xl:block hidden z-1 xl:left-[85%] md:left-[90%] left-[78%] top-[5%]' src='diagonal.png' alt='img' />
+                                <img className='absolute xl:block hidden z-1 xl:left-[92%] md:left-[100%] left-[85%] xl:top-[17%] md:top-[17%] top-[0%]' src='diagonal.png' alt='img' />
+                                <img className='absolute xl:block hidden z-1 xl:left-[0%] md:right-[90%] xl:top-[85%] md:top-[80%]' src='diagonal.png' alt='img' />
 
                                 <div id='navs' className='relative z-10 bg-[#464264] px-5 py-5 rounded-xl'>
                                     <h1 className='xl:text-[35px] md:text-2xl text-2xl text-white text-left'>
@@ -77,6 +78,9 @@ function Home() {
 
                 </div>
             </section>
+            <div>
+                <Footer />
+            </div>
         </div>
     )
 }
