@@ -1,15 +1,9 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import Layout from '../components/Layout/Layout'
 
 function Home() {
     return (
-        <div>
-
-            <div className='scroll-smooth z-1 w-full relative'>
-                <Navbar />
-            </div>
-
+        <Layout title={'codingninja-Home'}>
             <section className=" relative left-0 py-20 text-gray-600 body-font">
                 <img className='w-14 absolute xl:block hidden -z-10 xl:left-[91%] md:left-[90%] left-[78%] -top-[4%]' src='diagonal.png' alt='img' />
                 <img className='w-14 absolute xl:block hidden z-1 xl:left-[94%] md:left-[100%] left-[85%] xl:top-[2%] md:top-[17%] top-[0%]' src='diagonal.png' alt='img' />
@@ -75,13 +69,9 @@ function Home() {
                             </div>
                         </div>
                     </section>
-
                 </div>
             </section>
-            <div>
-                <Footer />
-            </div>
-        </div>
+        </Layout>
     )
 }
 

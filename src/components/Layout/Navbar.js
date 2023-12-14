@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import { Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -49,9 +48,9 @@ const Navbar = () => {
             <div className="w-full mx-auto px-4 lg:px-8">
                 <div className="flex items-center justify-between">
                     <div className=" w-full flex items-center lg:my-3 lg:pt-0 pt-5">
-                        <a href='/' className="w-fit lg:mx-0 flex items-center rounded-full">
+                        <Link href='/' className="w-fit lg:mx-0 flex items-center rounded-full">
                             <img className=" rounded-full" src="cnlogo.svg" alt="codingninjalogo" />
-                        </a>
+                        </Link>
                         <div className="hidden md:hidden lg:block ml-auto">
                             <div className="ml-10 flex items-baseline space-x-4">
                                 {navbar.map(data => {
@@ -71,7 +70,7 @@ const Navbar = () => {
                                 })}
 
                                 <a id='navs' href='#contact'
-                                    className=" bg-gradient-to-br from-[#D05401] to-white text-[#0D2232] font-semibold transition-all ease-in-out duration-500 hover:bg-gradient hover:from-[#D05401] hover:from-40% hover:text-white hover:to-[#0D2232] px-5 py-[7px] rounded-lg text-base group-hover:transition-all"
+                                    className="bg-gradient-to-br from-[#D05401] from-50% to-white text-white font-semibold transition-all ease-in-out hover:bg-gradient hover:from-[#D05401] hover:from-40% hover:bg-clip-text hover:text-transparent hover:to-[#0D2232] border-2 border-[#D05401] px-5 py-[7px] rounded-lg text-base group-hover:transition-all"
                                 >
                                     Login/Sign Up
                                 </a>
@@ -143,7 +142,7 @@ const Navbar = () => {
                                     <a
                                         id='navs'
                                         href="#contact"
-                                        className="w-fit bg-gradient-to-br from-[#D05401] to-white text-[#0D2232] font-semibold transition-all ease-in-out duration-500 hover:bg-gradient hover:from-[#D05401] hover:from-40% hover:text-white hover:to-[#0D2232] block px-5 py-[5px] rounded-md text-sm"
+                                        className="w-fit bg-gradient-to-br from-[#D05401] from-50% to-white text-white font-semibold transition-all ease-in-out hover:bg-gradient hover:from-[#D05401] hover:from-40% hover:bg-clip-text hover:text-transparent hover:to-[#0D2232] border-2 border-[#D05401] block px-5 py-[5px] rounded-md text-sm"
                                     >
                                         Login/Sign Up
                                     </a>
