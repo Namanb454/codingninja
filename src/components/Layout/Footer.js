@@ -17,7 +17,7 @@ function Footer() {
     return (
         <div>
             <footer class="text-white body-font bg-gradient-to-br from-[#464264] from-100%  to-100%">
-                <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+                <div class="container px-5 py-24 mx-auto flex md:items-center xl:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
                     <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                         <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
 
@@ -36,7 +36,7 @@ function Footer() {
                     </div>
                     <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 text-left">
 
-                        <div class="lg:w-1/4 md:w-1/2 w-full md:px-4 md:my-0 my-5">
+                        <div class="xl:w-1/4 md:w-1/2 w-full md:px-4 md:my-0 my-5">
                             <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase">Coding Ninjas</h2>
                             {codingninja.map((data) => {
                                 return (
@@ -48,7 +48,7 @@ function Footer() {
                                 )
                             })}
                         </div>
-                        <div class="lg:w-1/4 md:w-1/2 w-full md:px-4 md:my-0 my-5">
+                        <div class="xl:w-1/4 md:w-1/2 w-full md:px-4 md:my-0 my-5">
                             <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase">Products</h2>
                             {products.map((data) => {
                                 return (
@@ -60,7 +60,7 @@ function Footer() {
                                 )
                             })}
                         </div>
-                        <div class="lg:w-1/4 md:w-1/2 w-full md:px-4 md:my-0 my-5">
+                        <div class="xl:w-1/4 md:w-1/2 w-full md:px-4 md:my-0 my-5">
                             <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase">Community</h2>
                             {community.map((data) => {
                                 return (
@@ -75,8 +75,8 @@ function Footer() {
 
 
 
-                        <div class="lg:w-1/4 md:w-1/2 w-full md:my-0 my-5">
-                            <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase lg:text-center text-left">Follow Us</h2>
+                        <div class="xl:w-1/4 md:w-1/2 w-full md:my-0 my-5">
+                            <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase xl:text-center text-left">Follow Us</h2>
                             <nav class="list-none mb-10 justify-center md:mx-auto w-fit">
                                 <span class="inline-flex sm:mt-2 mt-2 sm:justify-start">
 

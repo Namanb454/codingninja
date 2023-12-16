@@ -27,7 +27,7 @@ function Home() {
                 <img className='w-14 absolute xl:block hidden z-1 xl:left-[94%] md:left-[100%] left-[85%] xl:top-[2%] md:top-[17%] top-[0%]' src='diagonal.png' alt='img' />
                 <img className='w-14 absolute xl:block hidden z-1 xl:left-[91%] md:right-[90%] xl:top-[8%] md:top-[80%]' src='diagonal.png' alt='img' />
 
-                <div className="container mx-auto flex px-5 md:flex-row lg:flex-row-reverse flex-col items-center">
+                <div className="container mx-auto flex px-5 md:flex-row xl:flex-row-reverse flex-col items-center">
 
                     <div className="xl:max-w-lg xl:w-1/2 md:w-full w-full mb-10 md:mb-0">
                         <div className='flex'>
@@ -95,7 +95,7 @@ function Home() {
                     <video playsInline
                         loop
                         muted
-                        ref={videoEl} src='CNVideo.mp4'>
+                        ref={videoEl} src='CNVideo.mp4' className='w-full'>
                     </video>
                 </div>
 
@@ -107,13 +107,13 @@ function Home() {
                             width="100%" height="480" allowfullscreen="" loading="lazy"></iframe>
                     </div>
 
-                    <div className="container px-2 lg:px-20 w-full mx-auto">
+                    <div className="container px-2 xl:px-20 w-full mx-auto">
                         <div
-                            className="block mx-auto lg:h-[120vh] md:h-[80vh] h-[70vh] rounded-2xl bg-[#132C66F0] lg:px-20 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-10 -mt-[100px] backdrop-blur-[30px] border border-gray-300">
+                            className="block mx-auto xl:h-[120vh] md:h-[80vh] h-[70vh] rounded-2xl bg-[#132C66F0] xl:px-20 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-10 -mt-[100px] backdrop-blur-[30px] border border-gray-300">
 
                             <div className="flex flex-wrap">
-                                <div className="md:mb-12 w-fit mx-auto shrink-0 grow-0 basis-auto md:px-3 lg:mb-0  lg:px-6">
-                                    <h1 className='glow leading-snug text-white lg:text-5xl md:text-4xl text-2xl w-fit font-semibold  drop-shadow-2xl '>Connect With Ninja
+                                <div className="md:mb-12 w-fit mx-auto shrink-0 grow-0 basis-auto md:px-3 xl:mb-0  xl:px-6">
+                                    <h1 className='glow leading-snug text-white xl:text-5xl md:text-4xl text-2xl w-fit font-semibold  drop-shadow-2xl '>Connect With Ninja
                                         <br />
                                         Captains Nationwide!</h1>
                                 </div>
@@ -135,12 +135,12 @@ function Home() {
 
                             {/* Navbar  */}
 
-                            <div class=" px-4 py-6 sm:px-6 lg:px-8">
+                            <div class=" px-4 py-6 sm:px-6 xl:px-8">
                                 <div class="mx-auto max-w-7xl">
 
                                     <div>
                                         <div class="sm:block">
-                                            <nav class="flex lg:gap-40 md:gap-20 mx-auto w-fit" aria-label="Tabs">
+                                            <nav class="flex xl:gap-40 md:gap-20 mx-auto w-fit" aria-label="Tabs">
                                                 {direction.map(data => {
 
                                                     return (
