@@ -70,8 +70,8 @@ const Navbar = () => {
                                 })}
 
                                 <a id='navs' href='#contact'
-                                    className="bg-gradient-to-br from-[#D05401] from-50% to-white text-white font-semibold transition-all ease-in-out hover:bg-gradient hover:from-[#D05401] hover:from-40% hover:bg-clip-text hover:text-transparent hover:to-[#0D2232] border-2 border-[#D05401] px-5 py-[7px] rounded-lg text-base group-hover:transition-all"
-                                >
+                                    class="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:font-semibold hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#D05401] before:from-10% before:to-white before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
+
                                     Login/Sign Up
                                 </a>
 
@@ -93,10 +93,10 @@ const Navbar = () => {
 
                         <div className={isNavOpen ? "showMenuNav" : "hideMenuNav "}>
                             <div
-                                className="absolute top-0 right-0 px-2 pt-5"
+                                className="absolute top-0 right-0 px-2 pt-3"
                                 onClick={() => setIsNavOpen(false)}
                             >
-                                <svg
+                                {/* <svg
                                     className="h-9 w-9 text-[#1C314C]"
                                     viewBox="0 0 24 24"
                                     fill="none"
@@ -107,7 +107,30 @@ const Navbar = () => {
                                 >
                                     <line x1="18" y1="6" x2="6" y2="18" />
                                     <line x1="6" y1="6" x2="18" y2="18" />
-                                </svg>
+                                </svg> */}
+                                <button
+                                    class="relative border-2 border-[#0D2232] group rounded-full hover:border-[#D05401] w-10 h-10 duration-500 overflow-hidden"
+                                    type="button"
+                                >
+                                    <p
+                                        class="font-Manrope text-3xl h-full w-full flex items-center justify-center text-[#0D2232] duration-500 relative z-10 group-hover:scale-0"
+                                    >
+                                        ×
+                                    </p>
+                                    <span
+                                        class="absolute w-full h-full bg-[#D05401] rotate-45 group-hover:top-7 duration-500 top-12 left-0"
+                                    ></span>
+                                    <span
+                                        class="absolute w-full h-full bg-[#D05401] rotate-45 top-0 group-hover:left-7 duration-500 left-12"
+                                    ></span>
+                                    <span
+                                        class="absolute w-full h-full bg-[#D05401] rotate-45 top-0 group-hover:right-7 duration-500 right-12"
+                                    ></span>
+                                    <span
+                                        class="absolute w-full h-full bg-[#D05401] rotate-45 group-hover:bottom-7 duration-500 bottom-12 right-0"
+                                    ></span>
+                                </button>
+
                             </div>
                             <div
                                 className={`${isNavOpen ? 'block' : 'hidden'

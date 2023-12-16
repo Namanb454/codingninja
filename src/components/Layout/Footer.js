@@ -36,7 +36,7 @@ function Footer() {
                     </div>
                     <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 text-left">
 
-                        <div class="lg:w-1/4 md:w-1/2 w-1/2 md:px-4">
+                        <div class="lg:w-1/4 md:w-1/2 w-full md:px-4 md:my-0 my-5">
                             <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase">Coding Ninjas</h2>
                             {codingninja.map((data) => {
                                 return (
@@ -48,7 +48,7 @@ function Footer() {
                                 )
                             })}
                         </div>
-                        <div class="lg:w-1/4 md:w-1/2 w-1/2 md:px-4">
+                        <div class="lg:w-1/4 md:w-1/2 w-full md:px-4 md:my-0 my-5">
                             <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase">Products</h2>
                             {products.map((data) => {
                                 return (
@@ -60,7 +60,7 @@ function Footer() {
                                 )
                             })}
                         </div>
-                        <div class="lg:w-1/4 md:w-1/2 w-1/2 md:px-4">
+                        <div class="lg:w-1/4 md:w-1/2 w-full md:px-4 md:my-0 my-5">
                             <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase">Community</h2>
                             {community.map((data) => {
                                 return (
@@ -75,24 +75,50 @@ function Footer() {
 
 
 
-                        <div class="lg:w-1/4 md:w-1/2 w-1/2">
-                            <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase text-center">Follow Us</h2>
-                            <nav class="list-none mb-10 justify-center mx-auto w-fit">
-                                <span class="inline-flex sm:mt-0 mt-2 sm:justify-start">
-                                    <a href='/' class=" text-white text-xs border-2 p-1 rounded-full">
+                        <div class="lg:w-1/4 md:w-1/2 w-full md:my-0 my-5">
+                            <h2 class="title-font font-bold text-white tracking-widest md:text-lg text-sm mb-3 uppercase lg:text-center text-left">Follow Us</h2>
+                            <nav class="list-none mb-10 justify-center md:mx-auto w-fit">
+                                <span class="inline-flex sm:mt-2 mt-2 sm:justify-start">
+
+                                    <a href='/' class="group flex justify-center p-2 rounded-md drop-shadow-xl  text-white font-semibold hover:translate-y-3 hover:rounded-full transition-all duration-500 hover:from-white hover:to-[#D05401] to-80% bg-gradient-to-r from-gray-800 to-black">
                                         <FaInstagram />
+                                        <span
+                                            class="absolute opacity-0 group-hover:opacity-100 group-hover:text-white group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                                        >
+                                            Instagram
+                                        </span>
                                     </a>
-                                    <a href='/' class=" md:ml-3 ml-1 text-white text-xs border-2 p-1 rounded-full">
+                                    <a href='/' class="ml-3  group flex justify-center p-2 rounded-md drop-shadow-xl text-white font-semibold hover:translate-y-3 hover:rounded-full transition-all duration-500 hover:from-white hover:to-[#D05401] to-80% bg-gradient-to-r from-gray-800 to-black">
                                         <FaTwitter />
+                                        <span
+                                            class="absolute opacity-0 group-hover:opacity-100 group-hover:text-white group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                                        >
+                                            Twitter
+                                        </span>
                                     </a>
-                                    <a href='/' class=" md:ml-3 ml-1 text-white text-xs border-2 p-1 rounded-full">
+                                    <a href='/' class="ml-3  group flex justify-center p-2 rounded-md drop-shadow-xl  text-white font-semibold hover:translate-y-3 hover:rounded-full transition-all duration-500 hover:from-white hover:to-[#D05401] to-80% bg-gradient-to-r from-gray-800 to-black">
                                         <FaFacebook />
+                                        <span
+                                            class="absolute opacity-0 group-hover:opacity-100 group-hover:text-white group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                                        >
+                                            Facebook
+                                        </span>
                                     </a>
-                                    <a href='/' class=" md:ml-3 ml-1 text-white text-xs border-2 p-1 rounded-full">
+                                    <a href='/' class="ml-3  group flex justify-center p-2 rounded-md drop-shadow-xl  text-white font-semibold hover:translate-y-3 hover:rounded-full transition-all duration-500 hover:from-white hover:to-[#D05401] to-80% bg-gradient-to-r from-gray-800 to-black">
                                         <FaYoutube />
+                                        <span
+                                            class="absolute opacity-0 group-hover:opacity-100 group-hover:text-white group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                                        >
+                                            Youtube
+                                        </span>
                                     </a>
-                                    <a href='/' class=" md:ml-3 ml-1 text-white text-xs border-2 p-1 rounded-full">
+                                    <a href='/' class="ml-3 group flex justify-center p-2 rounded-md drop-shadow-xl  text-white font-semibold hover:translate-y-3 hover:rounded-full transition-all duration-500 hover:from-white hover:to-[#D05401] to-80% bg-gradient-to-r from-gray-800 to-black">
                                         <FaLinkedin />
+                                        <span
+                                            class="absolute opacity-0 group-hover:opacity-100 group-hover:text-white group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                                        >
+                                            Linkedin
+                                        </span>
                                     </a>
                                 </span>
                             </nav>

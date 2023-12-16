@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Layout from '../components/Layout/Layout'
 
 function Home() {
+    const videoEl = useRef(null);
+    const attemptPlay = () => {
+        videoEl &&
+            videoEl.current &&
+            videoEl.current.play().catch(error => {
+                console.error("Error attempting to play", error);
+            });
+    };
+    useEffect(() => {
+        attemptPlay();
+    }, []);
+
+    const direction = [
+        { "dir": "East", }, { "dir": "West", }, { "dir": "North", }, { "dir": "South", },
+    ]
+
     return (
         <Layout title={'codingninja-Home'}>
             <section className=" relative left-0 py-20 text-gray-600 body-font">
+
+                {/* Header  */}
                 <img className='w-14 absolute xl:block hidden -z-10 xl:left-[91%] md:left-[90%] left-[78%] -top-[4%]' src='diagonal.png' alt='img' />
                 <img className='w-14 absolute xl:block hidden z-1 xl:left-[94%] md:left-[100%] left-[85%] xl:top-[2%] md:top-[17%] top-[0%]' src='diagonal.png' alt='img' />
                 <img className='w-14 absolute xl:block hidden z-1 xl:left-[91%] md:right-[90%] xl:top-[8%] md:top-[80%]' src='diagonal.png' alt='img' />
@@ -70,6 +88,83 @@ function Home() {
                         </div>
                     </section>
                 </div>
+
+
+                {/* Video  */}
+                <div className='py-24'>
+                    <video playsInline
+                        loop
+                        muted
+                        ref={videoEl} src='CNVideo.mp4'>
+                    </video>
+                </div>
+
+                {/* Connect */}
+                <section className="mb-32">
+                    <div id="map" className="relative h-[350px] overflow-hidden bg-cover bg-[50%] bg-no-repeat">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11672.945750644447!2d-122.42107853750231!3d37.7730507907087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858070cc2fbd55%3A0xa71491d736f62d5c!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1619524992238!5m2!1sen!2sus"
+                            width="100%" height="480" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+                    <div className="container px-2 lg:px-20 w-full mx-auto">
+                        <div
+                            className="block mx-auto lg:h-[120vh] md:h-[80vh] h-[70vh] rounded-2xl bg-[#132C66F0] lg:px-20 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-10 -mt-[100px] backdrop-blur-[30px] border border-gray-300">
+
+                            <div className="flex flex-wrap">
+                                <div className="md:mb-12 w-fit mx-auto shrink-0 grow-0 basis-auto md:px-3 lg:mb-0  lg:px-6">
+                                    <h1 className='glow leading-snug text-white lg:text-5xl md:text-4xl text-2xl w-fit font-semibold  drop-shadow-2xl '>Connect With Ninja
+                                        <br />
+                                        Captains Nationwide!</h1>
+                                </div>
+                            </div>
+
+                            {/* Search Bar  */}
+                            <div class="flex flex-col gap-4 justify-center items-center p-4 md:my-5">
+                                <div class="relative p-3 md:w-[80%] w-full">
+                                    <input type="text" class="rounded-full md:p-3 p-2 w-full text-black md:text-lg px-5" placeholder="Find Captains Near You" />
+                                    <button type="submit" class="absolute right-6 top-6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Navbar  */}
+
+                            <div class=" px-4 py-6 sm:px-6 lg:px-8">
+                                <div class="mx-auto max-w-7xl">
+
+                                    <div>
+                                        <div class="sm:block">
+                                            <nav class="flex lg:gap-40 md:gap-20 mx-auto w-fit" aria-label="Tabs">
+                                                {direction.map(data => {
+
+                                                    return (
+                                                        <button id='navs'
+                                                            className="text-gray-200 transition-all relative group tracking-wide md:px-3 px-2 py-2 rounded-md md:text-xl hover:tracking-widest scroll-smooth hover:scroll-auto hover:text-[#D05401] hover:font-bold hover:bg-gradient-to-t hover:from-[#D05401] hover:from-40% hover:to-white hover:text-transparent bg-clip-text"
+                                                        >
+                                                            <span>{data.dir}</span>
+                                                            <span className="absolute transition-all ease-in-out duration-1000 -bottom-1 left-1/2 w-0 h-[2px] bg-gradient-to-t from-[#D05401] from-10% to-white group-hover:w-1/2 group-hover:transition-all "></span>
+                                                            <span className="absolute transition-all ease-in-out duration-1000 -bottom-1 right-1/2 w-0 h-[2px] bg-gradient-to-t from-[#D05401] from-10% to-white group-hover:w-1/2 group-hover:transition-all"></span>
+                                                            <span className="absolute left-0 -bottom-1 w-full rounded-full h-[2px] transition-all ease-in-out duration-1000 -z-10  group-hover:transition-all"></span>
+                                                        </button>
+                                                    )
+                                                })}
+                                            </nav>
+                                        </div>
+                                        <div class="w-full mt-2 border-b border-gray-300"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
             </section>
         </Layout>
     )
