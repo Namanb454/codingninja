@@ -37,7 +37,7 @@ const Navbar = () => {
         };
     }, []);
 
-    
+
 
     return (
         <nav className='shadow-md' style={{
@@ -59,14 +59,18 @@ const Navbar = () => {
                                 className=" rounded-full" src="cnlogo.svg" alt="codingninjalogo" />
                         </Link>
                         <div className="hidden md:hidden lg:block ml-auto">
-                            <div className="ml-10 flex items-baseline space-x-4">
+                            <motion.div
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{ duration: 0.2, delay: 0.2, stiffness: 1000, velocity: -100 }}
+                                className="ml-10 flex items-baseline space-x-4">
                                 {navbar.map((data, index) => {
 
                                     return (
                                         <motion.a
                                             initial={{ scale: 0 }}
                                             animate={{ scale: 1 }}
-                                            transition={{ duration: 0.2 , delay: index * 0.2, stiffness: 1000, velocity: -100 }}
+                                            transition={{ duration: 0.2, delay: index * 0.2, stiffness: 1000, velocity: -100 }}
 
                                             id='navs' key={data.id}
                                             href={data.link}
@@ -85,13 +89,15 @@ const Navbar = () => {
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
                                     transition={{ duration: 0.1 }}
+                                    whileHover={{ backgroundColor: '' }}
+                                    whileTap={{ scale: 1.1 }}
                                     id='navs' href='#contact'
-                                    class="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#D05401] before:from-10% before:to-white before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
+                                    class="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full hover:bg-gradient-to-r hover:from-[#D05401] hover:from-10% hover:to-white hover:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
 
-                                    Login/Sign Up
+                                    Sign In/Sign Up
                                 </motion.a>
 
-                            </div>
+                            </motion.div>
                         </div>
                     </motion.div>
 
