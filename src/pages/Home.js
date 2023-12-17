@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import Layout from '../components/Layout/Layout'
+import gsap from "gsap";
 
 function Home() {
     const videoEl = useRef(null);
@@ -18,15 +19,23 @@ function Home() {
         { "dir": "East", }, { "dir": "West", }, { "dir": "North", }, { "dir": "South", },
     ]
 
+    // GSAP
+    const el = useRef(null);
+    useEffect(() => {
+        const tl = gsap.timeline();
+        tl.to(el.current, { duration: 1, rotate: 360, stagger:true});
+    }, []);
+    
+
     return (
         <Layout title={'codingninja-Home'}>
             <section className=" relative left-0 py-20 text-gray-600 body-font">
 
                 {/* Header  */}
-                <img className='w-14 absolute xl:block hidden -z-10 xl:left-[91%] md:left-[90%] left-[78%] -top-[1%]'
+                <img ref={el} className='w-14 absolute xl:block hidden -z-10 xl:left-[91%] md:left-[90%] left-[78%] -top-[1%]'
                     src='diagonal.png' alt='img' />
-                <img className='w-14 absolute xl:block hidden z-1 xl:left-[94%] md:left-[100%] left-[85%] top-[0.5%]' src='diagonal.png' alt='img' />
-                <img className='w-14 absolute xl:block hidden z-1 xl:left-[91%] md:left-[90%] top-[2%] ' src='diagonal.png' alt='img' />
+                <img ref={el} className='w-14 absolute xl:block hidden z-1 xl:left-[94%] md:left-[100%] left-[85%] top-[0.5%]' src='diagonal.png' alt='img' />
+                <img ref={el} className='w-14 absolute xl:block hidden z-1 xl:left-[91%] md:left-[90%] top-[2%] ' src='diagonal.png' alt='img' />
 
                 <div className="container mx-auto flex px-5 md:flex-row xl:flex-row-reverse flex-col items-center">
 
@@ -114,7 +123,7 @@ function Home() {
 
                             <div className="flex flex-wrap">
                                 <div className="md:mb-12 w-fit mx-auto shrink-0 grow-0 basis-auto md:px-3 xl:mb-0  xl:px-6">
-                                    <h1 className='glow leading-snug text-white xl:text-5xl md:text-4xl text-2xl w-fit font-semibold  drop-shadow-2xl '>Connect With Ninja
+                                    <h1 className='glow leading-snug text-white xl:text-5xl md:text-4xl text-2xl w-fit font-semibold  drop-shadow-2xl'>Connect With Ninja
                                         <br />
                                         Captains Nationwide!</h1>
                                 </div>

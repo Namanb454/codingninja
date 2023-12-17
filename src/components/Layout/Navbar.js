@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
 
 const Navbar = () => {
 
@@ -28,9 +29,6 @@ const Navbar = () => {
     const listenScrollEvent = () => {
         window.backgroundColor = "red";
         window.scrollY > 10 ? setnavColor("#") : setnavColor("white");
-        // window.scrollY < 0 ? setnavColor("black") : setnavColor("black");
-        // window.scrollY > 10 ? setnavSize("5rem") : setnavSize("5rem");
-        // window.scrollY > 10 ? settextcolor("white") : settextcolor("white");
     };
     useEffect(() => {
         window.addEventListener("scroll", listenScrollEvent);
@@ -38,8 +36,16 @@ const Navbar = () => {
             window.removeEventListener("scroll", listenScrollEvent);
         };
     }, []);
+
+    // GSAP
+    // const el = useRef(null);
+    useEffect(() => {
+        const tl = gsap.timeline();
+        tl.from(".navLink", { duration: 1, y: -100, duration: 1, stagger: 0.5 });
+    }, []);
+
     return (
-        <nav className='shadow-md' style={{
+        <nav id='' className='nav shadow-md' style={{
             backgroundColor: navColor,
             height: navSize,
             transition: "all 0.5s",
@@ -58,7 +64,7 @@ const Navbar = () => {
                                     return (
                                         <a id='navs' key={data.id}
                                             href={data.link}
-                                            className="transition-all relative group tracking-wide px-3 py-2 rounded-md text-base hover:tracking-widest scroll-smooth hover:scroll-auto hover:text-[#D05401] hover:font-bold hover:bg-gradient-to-t hover:from-[#D05401] hover:from-40% hover:to-white hover:text-transparent bg-clip-text"
+                                            className="navLink transition-all relative group tracking-wide px-3 py-2 rounded-md text-base hover:tracking-widest scroll-smooth hover:scroll-auto hover:text-[#D05401] hover:font-bold hover:bg-gradient-to-t hover:from-[#D05401] hover:from-40% hover:to-white hover:text-transparent bg-clip-text"
                                         >
                                             <span>{data.nav}</span>
                                             <span className="absolute transition-all ease-in-out duration-1000 -bottom-1 left-1/2 w-0 h-[2px] bg-gradient-to-t from-[#D05401] from-10% to-white group-hover:w-1/2 group-hover:transition-all "></span>
