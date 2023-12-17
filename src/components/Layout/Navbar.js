@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import gsap from 'gsap';
+import { motion, stagger } from 'framer-motion';
 
 const Navbar = () => {
 
@@ -37,15 +37,10 @@ const Navbar = () => {
         };
     }, []);
 
-    // GSAP
-    // const el = useRef(null);
-    useEffect(() => {
-        const tl = gsap.timeline();
-        tl.from(".navLink", { duration: 1, y: -100, duration: 1, stagger: 0.5 });
-    }, []);
+    
 
     return (
-        <nav id='' className='nav shadow-md' style={{
+        <nav className='shadow-md' style={{
             backgroundColor: navColor,
             height: navSize,
             transition: "all 0.5s",
@@ -53,37 +48,52 @@ const Navbar = () => {
         }}>
             <div className="w-full mx-auto px-4 lg:px-8">
                 <div className="flex items-center justify-between">
-                    <div className=" w-full flex items-center lg:my-3 lg:pt-0 pt-5">
-                        <Link href='/' className="w-fit lg:mx-0 flex items-center rounded-full">
-                            <img className=" rounded-full" src="cnlogo.svg" alt="codingninjalogo" />
+                    <motion.div
+                        className=" w-full flex items-center lg:my-3 lg:pt-0 pt-5">
+                        <Link
+                            href='/' className="w-fit lg:mx-0 flex items-center rounded-full">
+                            <motion.img
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{ duration: 0.1, }}
+                                className=" rounded-full" src="cnlogo.svg" alt="codingninjalogo" />
                         </Link>
                         <div className="hidden md:hidden lg:block ml-auto">
                             <div className="ml-10 flex items-baseline space-x-4">
-                                {navbar.map(data => {
+                                {navbar.map((data, index) => {
 
                                     return (
-                                        <a id='navs' key={data.id}
+                                        <motion.a
+                                            initial={{ scale: 0 }}
+                                            animate={{ scale: 1 }}
+                                            transition={{ duration: 0.2 , delay: index * 0.2, stiffness: 1000, velocity: -100 }}
+
+                                            id='navs' key={data.id}
                                             href={data.link}
-                                            className="navLink transition-all relative group tracking-wide px-3 py-2 rounded-md text-base hover:tracking-widest scroll-smooth hover:scroll-auto hover:text-[#D05401] hover:font-bold hover:bg-gradient-to-t hover:from-[#D05401] hover:from-40% hover:to-white hover:text-transparent bg-clip-text"
+                                            className="transition-all relative group tracking-wide px-3 py-2 rounded-md text-base hover:tracking-widest scroll-smooth hover:scroll-auto hover:text-[#D05401] hover:font-bold hover:bg-gradient-to-t hover:from-[#D05401] hover:from-40% hover:to-white hover:text-transparent bg-clip-text"
                                         >
                                             <span>{data.nav}</span>
                                             <span className="absolute transition-all ease-in-out duration-1000 -bottom-1 left-1/2 w-0 h-[2px] bg-gradient-to-t from-[#D05401] from-10% to-white group-hover:w-1/2 group-hover:transition-all "></span>
                                             <span className="absolute transition-all ease-in-out duration-1000 -bottom-1 right-1/2 w-0 h-[2px] bg-gradient-to-t from-[#D05401] from-10% to-white group-hover:w-1/2 group-hover:transition-all"></span>
                                             <span className="absolute left-0 -bottom-1 w-full rounded-full h-[2px] transition-all ease-in-out duration-1000 -z-10  group-hover:transition-all"></span>
-                                        </a>
+                                        </motion.a>
 
                                     )
                                 })}
 
-                                <a id='navs' href='#contact'
+                                <motion.a
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ duration: 0.1 }}
+                                    id='navs' href='#contact'
                                     class="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#D05401] before:from-10% before:to-white before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
 
                                     Login/Sign Up
-                                </a>
+                                </motion.a>
 
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
 
 
