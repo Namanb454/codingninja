@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, stagger } from 'framer-motion';
+import Login from '../../pages/Login';
+import ReactModal from 'react-modal';
+import { IoMdCloseCircle } from "react-icons/io";
+import Auth from './Auth';
+// import  from 'react-modal';
 
 const Navbar = () => {
 
@@ -37,8 +42,7 @@ const Navbar = () => {
         };
     }, []);
 
-
-
+    const [visible, setVisible] = useState(false)
     return (
         <nav className='shadow-md' style={{
             backgroundColor: navColor,
@@ -84,19 +88,19 @@ const Navbar = () => {
 
                                     )
                                 })}
+                                <Link to='/auth'>
+                                    <motion.div
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.1 }}
+                                        whileHover={{ backgroundColor: '' }}
+                                        whileTap={{ scale: 1.1 }}
+                                        id='navs'
+                                        class="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full hover:bg-gradient-to-r hover:from-[#D05401] hover:from-10% hover:to-white hover:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
 
-                                <motion.a
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ duration: 0.1 }}
-                                    whileHover={{ backgroundColor: '' }}
-                                    whileTap={{ scale: 1.1 }}
-                                    id='navs' href='#contact'
-                                    class="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full hover:bg-gradient-to-r hover:from-[#D05401] hover:from-10% hover:to-white hover:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
-
-                                    Sign In/Sign Up
-                                </motion.a>
-
+                                        Sign In
+                                    </motion.div>
+                                </Link>
                             </motion.div>
                         </div>
                     </motion.div>
@@ -148,14 +152,11 @@ const Navbar = () => {
                                 id="mobile-Homeu"
                                 ref={menuRef}
                             >
-                                <div className=" space-y-7 transition-all mx- " ref={menuRef}>
+                                <div className=" space-y-5 transition-all mx- " ref={menuRef}>
                                     <div className="w-fit flex items-center" onClick={() => setIsNavOpen(false)}
                                     >
                                         <img className="" src="cnlogo.svg" alt="codingninjalogo" />
-                                        {/* <div className=''>
-                                            <h2 className='lg:text-4xl text-[#1C314C] mx-1 text-xl font-serif'>site<span className='text-[#b6984b]'>Script</span></h2>
-                                            <h2 className='w-fit mx-auto text-[5px] text-[#1C314C] [word-spacing:1px]'>WE DESIGN. WE DEVELOP. WE DELIEVR.</h2>
-                                        </div> */}
+
                                     </div>
 
                                     {navbar.map(data => {
@@ -166,19 +167,20 @@ const Navbar = () => {
                                                 onClick={() => setIsNavOpen(false)}
                                                 key={data.id}
                                                 href={data.link}
-                                                className="text-[#1C314C] hover:tracking-widest scroll-smooth hover:scroll-auto hover:text-[#D05401] hover:font-bold font-semibold hover:bg-gradient-to-t hover:from-[#D05401] hover:from-30% hover:to-white hover:text-transparent bg-clip-text w-[100%] tracking-wide transition-all block px-3 py-2 rounded-md text-base text-left"
+                                                className="text-[#1C314C] hover:tracking-widest scroll-smooth hover:scroll-auto hover:text-[#D05401] hover:font-bold font-semibold hover:bg-gradient-to-t hover:from-[#D05401] hover:from-30% hover:to-white hover:text-transparent bg-clip-text w-[100%] tracking-wide transition-all block px-3 py-5 rounded-md text-base text-left"
                                             >
                                                 {data.nav}
                                             </a>
                                         )
                                     })}
-                                    <a
-                                        id='navs'
-                                        href="#contact"
-                                        className="w-fit bg-gradient-to-br from-[#D05401] from-50% to-white text-white font-semibold transition-all ease-in-out hover:bg-gradient hover:from-[#D05401] hover:from-40% hover:bg-clip-text hover:text-transparent hover:to-[#0D2232] border-2 border-[#D05401] block px-5 py-[5px] rounded-md text-sm"
-                                    >
-                                        Login/Sign Up
-                                    </a>
+                                    <Link to='/auth'>
+                                        <div
+                                            id='navs'
+                                            className="mt-10 relative py-2 px-0 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full w-[50%] before:h-full hover:bg-gradient-to-r hover:from-[#D05401] hover:from-10% hover:to-white hover:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0"
+                                        >
+                                            Sign In
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

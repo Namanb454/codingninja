@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import Layout from '../components/Layout/Layout'
 import { motion } from 'framer-motion';
+import Login from './Login';
+import Auth from '../components/Layout/Auth';
 
 function Home() {
     const videoEl = useRef(null);
@@ -255,11 +257,9 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
-
             </section>
         </Layout>
     )

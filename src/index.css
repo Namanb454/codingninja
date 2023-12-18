@@ -17,6 +17,10 @@
   font-weight: 700;
 }
 
+#authFont {
+  font-family: 'Poppins', sans-serif;
+}
+
 .glow {
   /* font-size: 80px; */
   color: #fff;
