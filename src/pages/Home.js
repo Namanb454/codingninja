@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import Layout from '../components/Layout/Layout'
 import { motion } from 'framer-motion';
-// import Login from './Login';
-import Auth from '../components/Layout/Auth';
-import { useAuth } from "../context/auth";
+// import Auth from '../components/Layout/Auth';
+// import { useAuth } from "../context/auth";
 
 function Home() {
     const videoEl = useRef(null);

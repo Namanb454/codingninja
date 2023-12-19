@@ -42,7 +42,7 @@ function Signup() {
         <>
             <html class="h-full">
                 <body class=" flex h-full items-center ">
-                    <main id='authFont' class="w-full bg-gray-200 max-w-md mx-auto p-10">
+                    <main id='authFont' class="w-full h-auto bg-gray-200 max-w-md mx-auto p-10">
                         <div>
                             <Link to='/'>
                                 <img className="mx-auto" src="cnlogo.svg" alt="logo" />
