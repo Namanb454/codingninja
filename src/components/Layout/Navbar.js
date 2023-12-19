@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, stagger } from 'framer-motion';
-import Login from '../../pages/Login';
-import ReactModal from 'react-modal';
-import { IoMdCloseCircle } from "react-icons/io";
-import Auth from './Auth';
+// import Login from '../../pages/Login';
+// import ReactModal from 'react-modal';
+// import { IoMdCloseCircle } from "react-icons/io";
+// import Auth from './Auth';
 // import  from 'react-modal';
 
 const Navbar = () => {
@@ -88,7 +88,7 @@ const Navbar = () => {
 
                                     )
                                 })}
-                                <Link to='/auth'>
+                                <Link to='/login'>
                                     <motion.div
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
@@ -173,7 +173,7 @@ const Navbar = () => {
                                             </a>
                                         )
                                     })}
-                                    <Link to='/auth'>
+                                    <Link to='/login'>
                                         <div
                                             id='navs'
                                             className="mt-10 relative py-2 px-0 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full w-[50%] before:h-full hover:bg-gradient-to-r hover:from-[#D05401] hover:from-10% hover:to-white hover:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0"

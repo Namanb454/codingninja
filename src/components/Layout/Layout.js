@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { Helmet } from "react-helmet"
+import { Toaster } from "react-hot-toast";
 
 const Layout = ({ children, title }) => {
     return (
@@ -12,7 +13,11 @@ const Layout = ({ children, title }) => {
             </Helmet>
 
             <Navbar className='scroll-smooth z-1 w-full relative' />
-            <main>{children}</main>
+            <Toaster />
+
+            <main>
+                {children}
+            </main>
             <Footer />
         </div>
     )

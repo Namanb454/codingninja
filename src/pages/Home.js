@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import Layout from '../components/Layout/Layout'
 import { motion } from 'framer-motion';
-import Login from './Login';
+// import Login from './Login';
 import Auth from '../components/Layout/Auth';
+import { useAuth } from "../context/auth";
 
 function Home() {
     const videoEl = useRef(null);
@@ -21,49 +22,13 @@ function Home() {
         { "dir": "East", }, { "dir": "West", }, { "dir": "North", }, { "dir": "South", },
     ]
 
-    // const words1 = `Be a Leader.`;
-    // const words2 = `Be a Ninja Entrepreneur.`;
-
-    // const wordsArray1 = words1.split(" ");
-    // const wordsArray2 = words2.split(" ");
-
-    // Framer Motion 
-    // const [scope, animate] = useAnimate();
-    // useEffect(() => {
-    //     animate(
-    //         "span",
-    //         {
-    //             opacity: 1,
-    //         },
-    //         {
-    //             duration: 2,
-    //             delay: stagger(0.1),
-    //         }
-    //     );
-    // }, [scope.current]);
-
-    // const renderWords = () => {
-    //     return (
-    //         <motion.div ref={scope}>
-    //             {wordsArray1.map((word) => {
-    //                 return (
-    //                     <motion.span className="title-font xl:text-[45px] md:text-3xl text-2xl xl:mb-4 text-[#132C66] font-bold opacity-0">{word} </motion.span>
-    //                 );
-    //             })}
-    //             {/* <br /> */}
-    //             <br />
-    //             {wordsArray2.map((word) => {
-    //                 return (
-    //                     <motion.span className="title-font xl:text-[45px] md:text-3xl text-2xl xl:mb-4 text-[#132C66] font-bold opacity-0">{word} </motion.span>
-    //                 );
-    //             })}
-    //         </motion.div>
-    //     );
-    // };
-
+    // const [auth, setAuth] = useAuth();
 
     return (
         <Layout title={'codingninja-Home'}>
+            {/* <h1>HomePage</h1>
+            <pre>{JSON.stringify(auth, null, 4)}</pre> */}
+
             <section className=" relative left-0 py-20 text-gray-600 body-font">
 
                 {/* Header  */}

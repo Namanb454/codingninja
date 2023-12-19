@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import Login from '../../pages/Login';
-import Signup from '../../pages/Signup';
+// import Login from '../../pages/Login';
+// import Signup from '../../pages/Signup';
 import { Link } from 'react-router-dom';
+import Signup from '../../pages/Auth/Signup';
+import Login from '../../pages/Auth/Login';
 
 // Main Auth component
 const Auth = () => {
@@ -38,9 +40,12 @@ const Auth = () => {
             {/* <h2 className="text-2xl font-bold mb-4">{mode === 'login' ? 'Login' : 'Sign Up'}</h2> */}
             {mode === 'login' ? (
                 // <LoginForm onSubmit={handleLoginSubmit} />
+                // helo
                 <Login />
+                // <Login />
             ) : (
                 // <SignupForm onSubmit={handleSignupSubmit} />
+                // <Sig/nup />
                 <Signup />
             )}
         </div>
