@@ -44,7 +44,7 @@ const Navbar = () => {
 
     const [visible, setVisible] = useState(false)
     return (
-        <nav className='shadow-md' style={{
+        <nav className='shadow-md relative' style={{
             backgroundColor: navColor,
             height: navSize,
             transition: "all 0.5s",
