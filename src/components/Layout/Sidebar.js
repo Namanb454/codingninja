@@ -4,6 +4,7 @@ import { MdEmojiEvents } from "react-icons/md";
 import { GiNinjaHeroicStance } from "react-icons/gi";
 import { IoIosSettings } from "react-icons/io";
 import Navbar from './Navbar';
+import StaggeredAnimation from './StaggeredAnimation ';
 
 function Sidebar({ children }) {
 
@@ -58,6 +59,9 @@ function Sidebar({ children }) {
                 </div>
             </div>
         </div>
+        // <div>
+        //     {/* <StaggeredAnimation/> */}
+        // </div>
     )
 }
 

@@ -1,33 +1,76 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Sidebar from '../components/Layout/Sidebar'
 import { MdOutlineWatchLater } from "react-icons/md";
 import { GoProjectSymlink } from "react-icons/go";
 import { IoMdAdd } from "react-icons/io";
-// import Layout from '../components/Layout/Layout'
+import { motion, stagger, useAnimate, useInView } from 'framer-motion';
 
 function Dashboard() {
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, { amount: 0.5, });
+
+    // const StaggeredAnimation = useAnimate("h1", { opacity: 1 }, { delay: stagger(0.1) }, { y: 0 })
+
+    const variants2 = {
+        initial: {
+            scale: 0,
+        },
+        animate: {
+            scale: 1,
+            y: 0,
+        }
+    }
+
     return (
         <div>
             <div className='mt- z-'>
                 <Sidebar>
-                    <section class="bg-[#ff9f9f4f] rounded-xl my-10 shadow-md">
-                        <div class="container mx-auto flex px-5 py-10 md:flex-row flex-col items-center">
+                    <motion.section
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.2 }}
+                        class="bg-[#ff9f9f4f] rounded-xl my-10 shadow-md">
+                        <motion.div
+                            class="container mx-auto flex px-5 py-10 md:flex-row flex-col items-center">
                             <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center ">
-                                <h1 class="title-font sm:text-3xl text-3xl mb-4 font-medium text-[#666189]">Welcome Back Captain!
-                                </h1>
-                                <p class="mb-8 leading-relaxed text-base text-[#414141] w-[60%]">We're thrilled to have you back in the command center! <br />Get ready to embark on another exciting journey filled with coding adventures, leadership, and innovation.</p>
+                                <motion.h1
+                                    initial={{ x: -200, opacity: 0, scale: 0 }}
+                                    animate={{ x: 0, opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.4, delay: 0.3 }}
+                                    class="title-font sm:text-3xl text-3xl mb-4 font-medium text-[#666189]">Welcome Back Captain!
+                                </motion.h1>
+                                <motion.p
+                                    initial={{ x: -200, opacity: 0, scale: 0 }}
+                                    animate={{ x: 0, opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.5, delay: 0.4 }}
+                                    class="mb-8 leading-relaxed text-base text-[#414141] w-[60%]">We're thrilled to have you back in the command center! <br />Get ready to embark on another exciting journey filled with coding adventures, leadership, and innovation.</motion.p>
 
                             </div>
                             <div class="lg:w-[30%] md:w-1/2 w-5/6 absolute left-[70%]">
-                                <img class="object-cover object-center rounded" alt="hero" src="Elements(2).png" />
+                                <motion.img
+                                    initial={{ x: 200, opacity: 0, scale: 0 }}
+                                    animate={{ x: 0, opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.5, delay: 0.4 }}
+
+                                    class="object-cover object-center rounded" alt="hero" src="Elements(2).png" />
                             </div>
-                        </div>
-                    </section>
+                        </motion.div>
+                    </motion.section>
 
                     <div className='flex'>
+
                         {/* Points */}
-                        <div className='w-2/3'>
-                            <section class=" mx-5 text-gray-600 body-font bg-gradient-to-br from-[#132c6626] from-50% to-white rounded-xl shadow-lg my-10">
+                        <motion.div
+                            ref={ref}
+                            variants={variants2}
+                            initial="initial"
+                            animate={isInView ? "animate" : "initial"}
+                            transition={{ duration: 0.4 }}
+                            className='w-2/3'>
+                            <section
+
+                                class=" mx-5 text-gray-600 body-font bg-gradient-to-br from-[#132c6626] from-50% to-white rounded-xl shadow-lg my-10">
                                 <div class="container mx-auto px-5 py-5 md:flex-row flex-col items-center">
                                     <div class="lg:flex-grow md:w-fit mx-auto flex flex-col md:items-start md:text-left md:mb-0 items-center text-center ">
                                         <h1 class="title-font sm:text-xl text-3xl font-bold text-[#132C66] mx-auto"> Gold Points Glory!
@@ -47,10 +90,17 @@ function Dashboard() {
                                     </button>
                                 </div>
                             </section>
-                        </div>
+                        </motion.div>
 
                         {/* Suggested Courses */}
-                        <div className='w-1/3'>
+                        <motion.div
+                            ref={ref}
+                            variants={variants2}
+                            initial="initial"
+                            animate={isInView ? "animate" : "initial"}
+                            transition={{ duration: 0.4, delay: 0.2 }}
+
+                            className='w-1/3'>
                             <section class=" mx-5 text-gray-600 body-font bg-gradient-to-br from-[#5d48ff39] from-50% to-white rounded-xl shadow-lg my-10">
                                 <div class="container mx-auto px-5 py-5 md:flex-row flex-col items-center">
                                     <div class="lg:flex-grow md:w-fit mx-auto flex flex-col md:items-start md:text-left md:mb-0 items-center text-center ">
@@ -77,7 +127,7 @@ function Dashboard() {
                                                                     <MdOutlineWatchLater /> 140+ Hours
                                                                 </div>
                                                                 <div class="ml-auto text-[#0c111ddd] text-xs inline-flex items-center md:mb-2 lg:mb-0">
-                                                                    <GoProjectSymlink /> Projects
+                                                                    <GoProjectSymlink />10+ Projects
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -93,15 +143,25 @@ function Dashboard() {
                                     </button>
                                 </div>
                             </section>
-                        </div>
+                        </motion.div>
 
                     </div>
 
                     {/* Your team  */}
-                    <div>
-                        <div className='w-1/3'>
-                            <section class=" mx-5 text-gray-600 body-font bg-gradient-to-br from-[#5d48ff39] from-50% to-white rounded-xl shadow-lg my-">
-                                <div class="container mx-auto px-5 py-5 md:flex-row flex-col items-center">
+                    <div className='flex'>
+                        <motion.div
+                            ref={ref}
+                            variants={variants2}
+                            initial="initial"
+                            animate={isInView ? "animate" : "initial"}
+                            transition={{ duration: 0.4, delay: 0.4 }}
+                            className='w-1/3'>
+                            <section
+
+                                class=" mx-5 text-gray-600 body-font bg-gradient-to-br from-[#5d48ff39] from-50% to-white rounded-xl shadow-lg my-">
+                                <motion.div
+
+                                    class="container mx-auto px-5 py-5 md:flex-row flex-col items-center">
                                     <div class="lg:flex-grow md:w-full flex flex-col md:items-start md:text-left md:mb-0 items-center text-center ">
                                         <div className='flex w-full'>
                                             <h1 class="title-font w-fit sm:text-xl text-3xl font-semibold text-[#0c111db9] mr-auto"> Your Team
@@ -158,9 +218,38 @@ function Dashboard() {
                                     </section>
 
 
+                                </motion.div>
+                            </section>
+                        </motion.div>
+                        <motion.div
+                            ref={ref}
+                            variants={variants2}
+                            initial="initial"
+                            animate={isInView ? "animate" : "initial"}
+                            transition={{ duration: 0.4, delay: 0.6 }}
+                            className='w-[50%]'>
+                            <section class=" mx-5 text-gray-600 body-font bg-gradient-to-br from-[#5d48ff39] from-50% to-white rounded-xl shadow-lg my-">
+                                <div class="container mx-auto px-5 py-5 md:flex-row flex-col items-center">
+                                    <div class="lg:flex-grow md:w-full flex flex-col md:items-start md:text-left md:mb-0 items-center text-center ">
+                                        <div className='flex w-full'>
+                                            <h1 class="title-font w-fit sm:text-xl text-3xl font-semibold text-[#0c111db9] mr-auto">Captain's Meetup Hub
+                                            </h1>
+                                            {/* <button className='text-red-500 text-xl ml-10 items-center my-auto w-fit'>
+                                                <IoMdAdd />
+                                            </button> */}
+                                        </div>
+                                        <img className='w-40 mx-auto' src='Elements(1).png' />
+                                        <h3 className='text-sm w-[55%] mx-auto text-center font-semibold'>Join to share ideas and connect with other captains!</h3>
+                                    </div>
+
+
+                                    {/* Cards */}
+
+
+
                                 </div>
                             </section>
-                        </div>
+                        </motion.div>
                     </div>
                 </Sidebar >
 
