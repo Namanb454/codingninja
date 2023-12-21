@@ -1,16 +1,15 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Sidebar from '../components/Layout/Sidebar'
 import { MdOutlineWatchLater } from "react-icons/md";
 import { GoProjectSymlink } from "react-icons/go";
 import { IoMdAdd } from "react-icons/io";
+
 import { motion, stagger, useAnimate, useInView } from 'framer-motion';
 
 function Dashboard() {
 
     const ref = useRef(null);
-    const isInView = useInView(ref, { amount: 0.5, });
-
-    // const StaggeredAnimation = useAnimate("h1", { opacity: 1 }, { delay: stagger(0.1) }, { y: 0 })
+    const isInView = useInView(ref, { amount: 0.5, once: true });
 
     const variants2 = {
         initial: {
@@ -27,6 +26,7 @@ function Dashboard() {
             <div className='mt- z-'>
                 <Sidebar>
                     <motion.section
+                        // ref={animationScope}
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.2 }}
