@@ -4,19 +4,18 @@ import Home from './pages/Home';
 import Signup from "./pages/Auth/Signup";
 import Login from "./pages/Auth/Login";
 import Dashboard from "./pages/Dashboard";
-// import Auth from "./components/Layout/Auth";
-// import Login from "./pages/Login";
-// import Signup from "./pages/Signup";
+import PrivateRoute from "./components/Routes/Private";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/auth" element={<Auth />} /> */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<PrivateRoute />}>
+          <Route path="" element={<Dashboard />} />
+        </Route>
       </Routes>
     </div>
   );

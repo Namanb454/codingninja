@@ -9,6 +9,7 @@ import Layout from '../../components/Layout/Layout';
 function Signup() {
 
     const [name, setName] = useState("");
+    const [file, setFile] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
@@ -21,6 +22,7 @@ function Signup() {
         try {
             const res = await axios.post("/api/v1/auth/register", {
                 name,
+                file,
                 email,
                 password,
                 phone,
@@ -82,8 +84,19 @@ function Signup() {
 
                                                     </div>
                                                 </div>
-                                                {/* <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid email address so we can get back to you</p> */}
+
                                             </div>
+                                            {/* <div>
+                                                <label for="file" class="block text-sm mb-2 text-left">Choose Profile</label>
+                                                <div class="relative">
+                                                    <input type="file" accept='image/' id="file" name="file" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none   dark:text-gray-400 dark:focus:ring-gray-600"  aria-describedby="file-error" value={file}
+                                                        onChange={(e) => setFile(e.target.value)} />
+                                                    <div class=" absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
+
+                                                    </div>
+                                                </div>
+
+                                            </div> */}
                                             <div>
                                                 <label for="text" class="block text-sm mb-2 text-left">Phone</label>
                                                 <div class="relative">
@@ -93,7 +106,7 @@ function Signup() {
 
                                                     </div>
                                                 </div>
-                                                {/* <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid email address so we can get back to you</p> */}
+
                                             </div>
                                             <div>
                                                 <label for="email" class="block text-sm mb-2 text-left">Email address</label>

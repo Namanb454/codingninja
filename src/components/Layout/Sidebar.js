@@ -4,7 +4,10 @@ import { MdEmojiEvents } from "react-icons/md";
 import { GiNinjaHeroicStance } from "react-icons/gi";
 import { IoIosSettings } from "react-icons/io";
 import Navbar from './Navbar';
-import StaggeredAnimation from './StaggeredAnimation ';
+import { useAuth } from '../../context/auth';
+import toast from "react-hot-toast";
+import { Link } from 'react-router-dom';
+import { IoLogOut } from "react-icons/io5";
 
 function Sidebar({ children }) {
 
@@ -14,6 +17,18 @@ function Sidebar({ children }) {
         { 'id': '3', 'nav': 'Members', 'icons': GiNinjaHeroicStance, 'link': '#' },
         { 'id': '4', 'nav': 'Settings', 'icons': IoIosSettings, 'link': '#' },
     ];
+
+    // Logout
+    const [auth, setAuth] = useAuth();
+    const handleLogout = () => {
+        setAuth({
+            ...auth,
+            user: null,
+            token: "",
+        });
+        localStorage.removeItem("auth");
+        toast.success("Logout Successfully");
+    };
 
     return (
         <div>
@@ -40,6 +55,12 @@ function Sidebar({ children }) {
                                                 </li>
                                             )
                                         })}
+                                        <Link to="/" onClick={handleLogout}>
+                                            <button className=" inline-flex items-center w-full px-4 py-2 mt-1 text-base transition duration-500 ease-in-out transform rounded-lg text-[#666189] font-semibold  focus:bg-gradient-to-r  focus:from-[#666189] focus:from-[4%] focus:via-[#9992CE] focus:via-5% focus:to-white focus:to-100% focus:transition-all hover:bg-gradient-to-r hover:from-[#9992CE] hover:from-10% hover:to-white hover:transition-all" white="" >
+                                                <IoLogOut />
+                                                <span className="ml-4">Sign Out</span>
+                                            </button>
+                                        </Link>
                                     </ul>
                                 </nav>
                             </div>
@@ -59,9 +80,6 @@ function Sidebar({ children }) {
                 </div>
             </div>
         </div>
-        // <div>
-        //     {/* <StaggeredAnimation/> */}
-        // </div>
     )
 }
 

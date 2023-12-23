@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, json } from 'react-router-dom';
 import { motion, stagger } from 'framer-motion';
-// import Login from '../../pages/Login';
-// import ReactModal from 'react-modal';
-// import { IoMdCloseCircle } from "react-icons/io";
-// import Auth from './Auth';
-// import  from 'react-modal';
+import { useAuth } from '../../context/auth';
 
-const Navbar = () => {
+const Navbar = ({ items, defaultValue = '' }) => {
+
+    // context
+    const [auth, setAuth] = useAuth();
+
 
     const [isNavOpen, setIsNavOpen] = useState(false);
     let menuRef = useRef();
@@ -43,6 +43,8 @@ const Navbar = () => {
     }, []);
 
     const [visible, setVisible] = useState(false)
+    const options = ['Option 1', 'Option 2', 'Option 3'];
+
     return (
         <nav className='shadow-md relative' style={{
             backgroundColor: navColor,
@@ -88,7 +90,21 @@ const Navbar = () => {
 
                                     )
                                 })}
-                                <Link to='/login'>
+                                {!auth?.user ? (
+                                    <Link to='/login'>
+                                        <motion.div
+                                            initial={{ scale: 0 }}
+                                            animate={{ scale: 1 }}
+                                            transition={{ duration: 0.1 }}
+                                            whileHover={{ backgroundColor: '' }}
+                                            whileTap={{ scale: 1.1 }}
+                                            id='navs'
+                                            class="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full hover:bg-gradient-to-r hover:from-[#D05401] hover:from-10% hover:to-white hover:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
+
+                                            Sign In
+                                        </motion.div>
+                                    </Link>
+                                ) : (<span id='navs'>
                                     <motion.div
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
@@ -96,11 +112,15 @@ const Navbar = () => {
                                         whileHover={{ backgroundColor: '' }}
                                         whileTap={{ scale: 1.1 }}
                                         id='navs'
-                                        class="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full hover:bg-gradient-to-r hover:from-[#D05401] hover:from-10% hover:to-white hover:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
+                                        class="relative py-2 px-8 text-base rounded-l-full overflow-hidden text-white font-semibold tracking-wide active:scale-90 before:absolute before:top-0 bg-gradient-to-br from-[#D05401] from-50% to-white transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] before:left-0">
 
-                                        Sign In
+                                        <span> {auth.user.name} </span>
+
                                     </motion.div>
-                                </Link>
+                                    {/* <span> {auth.user.name} </span> */}
+                                    {/* <Dropdown items={options} defaultValue="Option 2" /> */}
+                                    {/* <Dropdown /> */}
+                                </span>)}
                             </motion.div>
                         </div>
                     </motion.div>
