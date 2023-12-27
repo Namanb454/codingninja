@@ -4,16 +4,17 @@ import { MdEmojiEvents } from "react-icons/md";
 import { GiNinjaHeroicStance } from "react-icons/gi";
 import { IoIosSettings } from "react-icons/io";
 import Navbar from './Navbar';
+import Footer from './Footer';
 import { useAuth } from '../../context/auth';
 import toast from "react-hot-toast";
 import { Link } from 'react-router-dom';
 import { IoLogOut } from "react-icons/io5";
 
-function Sidebar({ children }) {
+function Sidebar({ children, color }) {
 
     const sideNavbar = [
-        { 'id': '1', 'nav': 'Dashboard', 'icons': RxDashboard, 'link': '#' },
-        { 'id': '2', 'nav': 'Events', 'icons': MdEmojiEvents, 'link': '#' },
+        { 'id': '1', 'nav': 'Dashboard', 'icons': RxDashboard, 'link': '/dashboard' },
+        { 'id': '2', 'nav': 'Events', 'icons': MdEmojiEvents, 'link': '/events' },
         { 'id': '3', 'nav': 'Members', 'icons': GiNinjaHeroicStance, 'link': '#' },
         { 'id': '4', 'nav': 'Settings', 'icons': IoIosSettings, 'link': '#' },
     ];
@@ -48,10 +49,10 @@ function Sidebar({ children }) {
                                         {sideNavbar.map((data) => {
                                             return (
                                                 <li>
-                                                    <button className=" inline-flex items-center w-full px-4 py-2 mt-1 text-base transition duration-500 ease-in-out transform rounded-lg text-[#666189] font-semibold  focus:bg-gradient-to-r  focus:from-[#666189] focus:from-[4%] focus:via-[#9992CE] focus:via-5% focus:to-white focus:to-100% focus:transition-all hover:bg-gradient-to-r hover:from-[#9992CE] hover:from-10% hover:to-white hover:transition-all" white="" href="/">
+                                                    <Link to={data.link} className=" inline-flex items-center w-full px-4 py-2 mt-1 text-base transition duration-500 ease-in-out transform rounded-lg text-[#666189] font-semibold  focus:bg-gradient-to-r  focus:from-[#666189] focus:from-[4%] focus:via-[#9992CE] focus:via-5% focus:to-white focus:to-100% focus:transition-all hover:bg-gradient-to-r hover:from-[#9992CE] hover:from-10% hover:to-white hover:transition-all" white="" href="/">
                                                         <data.icons />
                                                         <span className="ml-4">{data.nav}</span>
-                                                    </button>
+                                                    </Link>
                                                 </li>
                                             )
                                         })}
@@ -67,18 +68,10 @@ function Sidebar({ children }) {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col flex-1 w-0 overflow-hidden">
-                    <main className="relative flex-1 overflow-y-auto focus:outline-none">
-                        <div className="py-6">
-                            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-                                <h1 className="text-lg text-neutral-600">{children}</h1>
-                            </div>
-                            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-                            </div>
-                        </div>
-                    </main>
-                </div>
+                
+                {children}
             </div>
+            <Footer />
         </div>
     )
 }

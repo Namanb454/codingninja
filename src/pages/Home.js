@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import Layout from '../components/Layout/Layout'
 import { motion } from 'framer-motion';
-// import Auth from '../components/Layout/Auth';
-// import { useAuth } from "../context/auth";
 
 function Home() {
     const videoEl = useRef(null);
@@ -18,10 +16,8 @@ function Home() {
     }, []);
 
     const direction = [
-        { "dir": "East", }, { "dir": "West", }, { "dir": "North", }, { "dir": "South", },
+        { "dir": "East", "id": '1' }, { "dir": "West", "id": '2' }, { "dir": "North", "id": '3' }, { "dir": "South", "id": '4' },
     ]
-
-    // const [auth, setAuth] = useAuth();
 
     return (
         <Layout title={'codingninja-Home'}>
@@ -163,9 +159,7 @@ function Home() {
                 {/* Connect */}
                 <section className="mb-32">
                     <div id="map" className="relative h-[350px] overflow-hidden bg-cover bg-[50%] bg-no-repeat">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11672.945750644447!2d-122.42107853750231!3d37.7730507907087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858070cc2fbd55%3A0xa71491d736f62d5c!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1619524992238!5m2!1sen!2sus"
-                            width="100%" height="480" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3996.0431120224166!2d77.05345063728963!3d28.442953921066866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03d1c62ba76b%3A0xec4dbad7537d963b!2sCoding%20Ninjas!5e0!3m2!1sen!2sus!4v1703703360102!5m2!1sen!2sus" width="100%" height="480" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
                     <div className="container px-2 xl:px-20 w-full mx-auto">
@@ -181,13 +175,13 @@ function Home() {
                             </div>
 
                             {/* Search Bar  */}
-                            <div class="flex flex-col gap-4 justify-center items-center p-4 md:my-5">
-                                <div class="relative p-3 md:w-[80%] w-full">
-                                    <input type="text" class="rounded-full md:p-3 p-2 w-full text-black md:text-lg px-5" placeholder="Find Captains Near You" />
-                                    <button type="submit" class="absolute right-6 top-6">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                            stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
+                            <div className="flex flex-col gap-4 justify-center items-center p-4 md:my-5">
+                                <div className="relative p-3 md:w-[80%] w-full">
+                                    <input type="text" className="rounded-full md:p-3 p-2 w-full text-black md:text-lg px-5" placeholder="Find Captains Near You" />
+                                    <button type="submit" className="absolute right-6 top-6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                                            stroke="currentColor" className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round"
                                                 d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                         </svg>
                                     </button>
@@ -196,16 +190,16 @@ function Home() {
 
                             {/* Navbar  */}
 
-                            <div class=" px-4 py-6 sm:px-6 xl:px-8">
-                                <div class="mx-auto max-w-7xl">
+                            <div className=" px-4 py-6 sm:px-6 xl:px-8">
+                                <div className="mx-auto max-w-7xl">
 
                                     <div>
-                                        <div class="sm:block">
-                                            <nav class="flex xl:gap-40 md:gap-20 mx-auto w-fit" aria-label="Tabs">
+                                        <div className="sm:block">
+                                            <nav className="flex xl:gap-40 md:gap-20 mx-auto w-fit" aria-label="Tabs">
                                                 {direction.map(data => {
 
                                                     return (
-                                                        <button id='navs'
+                                                        <button key={data.id} id='navs'
                                                             className="text-gray-200 transition-all relative group tracking-wide md:px-3 px-2 py-2 rounded-md md:text-xl hover:tracking-widest scroll-smooth hover:scroll-auto hover:text-[#D05401] hover:font-bold hover:bg-gradient-to-t hover:from-[#D05401] hover:from-40% hover:to-white hover:text-transparent bg-clip-text"
                                                         >
                                                             <span>{data.dir}</span>
@@ -217,7 +211,7 @@ function Home() {
                                                 })}
                                             </nav>
                                         </div>
-                                        <div class="w-full mt-2 border-b border-gray-300"></div>
+                                        <div className="w-full mt-2 border-b border-gray-300"></div>
                                     </div>
                                 </div>
                             </div>

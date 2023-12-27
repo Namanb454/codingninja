@@ -18,10 +18,10 @@ const Spinner = () => {
     return (
         <>
             {/* <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->  */}
-            <div class='flex space-x-2 justify-center items-center h-screen'>
-                <div class='h-8 w-8 bg-black rounded-full animate-bounce [animation-delay:-0.3s]'></div>
-                <div class='h-8 w-8 bg-black rounded-full animate-bounce [animation-delay:-0.15s]'></div>
-                <div class='h-8 w-8 bg-black rounded-full animate-bounce'></div>
+            <div className='flex space-x-2 justify-center items-center h-screen'>
+                <div className='h-8 w-8 bg-black rounded-full animate-bounce [animation-delay:-0.3s]'></div>
+                <div className='h-8 w-8 bg-black rounded-full animate-bounce [animation-delay:-0.15s]'></div>
+                <div className='h-8 w-8 bg-black rounded-full animate-bounce'></div>
                 <h1 className="text-black font-">Redirecting you to in {count} seconds.</h1>
             </div>
         </>

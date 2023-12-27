@@ -57,7 +57,7 @@ const Navbar = ({ items, defaultValue = '' }) => {
                     <motion.div
                         className=" w-full flex items-center lg:my-3 lg:pt-0 pt-5">
                         <Link
-                            href='/' className="w-fit lg:mx-0 flex items-center rounded-full">
+                            to='/' className="w-fit lg:mx-0 flex items-center rounded-full">
                             <motion.img
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
@@ -90,6 +90,24 @@ const Navbar = ({ items, defaultValue = '' }) => {
 
                                     )
                                 })}
+                                <Link to='/dashboard'>
+                                    <motion.div
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.2, delay: 0.2, stiffness: 1000, velocity: -100 }}
+
+                                        id='navs'
+
+                                        className={!auth.user ? "hidden" : "transition-all relative group tracking-wide px-3 py-2 rounded-md text-base hover:tracking-widest scroll-smooth hover:scroll-auto hover:text-[#D05401] hover:font-bold hover:bg-gradient-to-t hover:from-[#D05401] hover:from-40% hover:to-white hover:text-transparent bg-clip-text"}
+                                    >
+                                        <span>Dashboard</span>
+                                        <span className="absolute transition-all ease-in-out duration-1000 -bottom-1 left-1/2 w-0 h-[2px] bg-gradient-to-t from-[#D05401] from-10% to-white group-hover:w-1/2 group-hover:transition-all "></span>
+                                        <span className="absolute transition-all ease-in-out duration-1000 -bottom-1 right-1/2 w-0 h-[2px] bg-gradient-to-t from-[#D05401] from-10% to-white group-hover:w-1/2 group-hover:transition-all"></span>
+                                        <span className="absolute left-0 -bottom-1 w-full rounded-full h-[2px] transition-all ease-in-out duration-1000 -z-10  group-hover:transition-all"></span>
+                                    </motion.div>
+                                </Link>
+
+
                                 {!auth?.user ? (
                                     <Link to='/login'>
                                         <motion.div
@@ -99,7 +117,7 @@ const Navbar = ({ items, defaultValue = '' }) => {
                                             whileHover={{ backgroundColor: '' }}
                                             whileTap={{ scale: 1.1 }}
                                             id='navs'
-                                            class="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full hover:bg-gradient-to-r hover:from-[#D05401] hover:from-10% hover:to-white hover:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
+                                            className="relative py-2 px-8 text-[#D05401] text-base rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:text-white tracking-wide hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full hover:bg-gradient-to-r hover:from-[#D05401] hover:from-10% hover:to-white hover:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
 
                                             Sign In
                                         </motion.div>
@@ -112,7 +130,7 @@ const Navbar = ({ items, defaultValue = '' }) => {
                                         whileHover={{ backgroundColor: '' }}
                                         whileTap={{ scale: 1.1 }}
                                         id='navs'
-                                        class="relative py-2 px-8 text-base rounded-l-full overflow-hidden text-white font-semibold tracking-wide active:scale-90 before:absolute before:top-0 bg-gradient-to-br from-[#D05401] from-50% to-white transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] before:left-0">
+                                        className="relative py-2 px-8 text-base rounded-l-full overflow-hidden text-white font-semibold tracking-wide active:scale-90 before:absolute before:top-0 bg-gradient-to-br from-[#D05401] from-50% to-white transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] before:left-0">
 
                                         <span> {auth.user.name} </span>
 
@@ -143,25 +161,25 @@ const Navbar = ({ items, defaultValue = '' }) => {
                                 onClick={() => setIsNavOpen(false)}
                             >
                                 <button
-                                    class="relative border-2 border-[#0D2232] group rounded-full hover:border-[#D05401] w-10 h-10 duration-500 overflow-hidden"
+                                    className="relative border-2 border-[#0D2232] group rounded-full hover:border-[#D05401] w-10 h-10 duration-500 overflow-hidden"
                                     type="button"
                                 >
                                     <p
-                                        class="font-Manrope text-3xl h-full w-full flex items-center justify-center text-[#0D2232] duration-500 relative z-10 group-hover:scale-0"
+                                        className="font-Manrope text-3xl h-full w-full flex items-center justify-center text-[#0D2232] duration-500 relative z-10 group-hover:scale-0"
                                     >
                                         ×
                                     </p>
                                     <span
-                                        class="absolute w-full h-full bg-[#D05401] rotate-45 group-hover:top-7 duration-500 top-12 left-0"
+                                        className="absolute w-full h-full bg-[#D05401] rotate-45 group-hover:top-7 duration-500 top-12 left-0"
                                     ></span>
                                     <span
-                                        class="absolute w-full h-full bg-[#D05401] rotate-45 top-0 group-hover:left-7 duration-500 left-12"
+                                        className="absolute w-full h-full bg-[#D05401] rotate-45 top-0 group-hover:left-7 duration-500 left-12"
                                     ></span>
                                     <span
-                                        class="absolute w-full h-full bg-[#D05401] rotate-45 top-0 group-hover:right-7 duration-500 right-12"
+                                        className="absolute w-full h-full bg-[#D05401] rotate-45 top-0 group-hover:right-7 duration-500 right-12"
                                     ></span>
                                     <span
-                                        class="absolute w-full h-full bg-[#D05401] rotate-45 group-hover:bottom-7 duration-500 bottom-12 right-0"
+                                        className="absolute w-full h-full bg-[#D05401] rotate-45 group-hover:bottom-7 duration-500 bottom-12 right-0"
                                     ></span>
                                 </button>
 
